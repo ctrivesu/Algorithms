@@ -24,17 +24,15 @@ def Kmeans(data, k):
     delta = 999999
     K = np.zeros((10, 13))
 
-
-
     # K = np.random.rand(10, 13)   # Cluster means
     # K = np.zeros((10, 13))
-
     # print("K:", K)
     cond = np.zeros((10, 1))
     print(cond[0:k], np.count_nonzero(cond[0:k]), k)
 
     while (K[0:k].size - np.count_nonzero(K[0:k])) != 0:
         print("Restart KMeans: ", K[0:k].size, np.count_nonzero(K[0:k]))
+
         # Initializing the means
         for i in range(k):
             K[i] = data[random.randint(0, 10)]
@@ -42,6 +40,7 @@ def Kmeans(data, k):
         k_count = np.zeros((10, 1))
         k_count_old = np.random.rand(10, 1)
 
+        # Kmeans Algorithm
         while not np.array_equal(k_count_old, k_count):
             k_count_old = k_count
             k_sum = np.zeros((10, 13))
