@@ -2,6 +2,7 @@
   <dictionary name="Sushant">
     <words>
       <w>lowercased</w>
+      <w>normilization</w>
     </words>
   </dictionary>
 </component>
