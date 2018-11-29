@@ -82,6 +82,9 @@ clrs = ['green', 'red', 'blue', 'yellow']
 for i in range(k):
     for j in KList[i]:
         plt.scatter(j[0], j[1], color=clrs[i])
+plt.xlabel('Feature1')
+plt.ylabel('Feature2')
 plt.show()
+
 
 
