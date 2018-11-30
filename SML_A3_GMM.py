@@ -86,7 +86,6 @@ def GMM(data_array):
     plt.ylabel('Feature2')
     plt.show()
 
-
 GMM(data_array)
 
 
