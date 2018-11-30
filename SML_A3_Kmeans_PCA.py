@@ -19,16 +19,14 @@ data_array = data_array.astype(np.float)
 print(data_array.shape)
 print("KMeans with PCA")
 
+# NORMALIZE THE ARRAY
 f_mean = np.sum(data_array, axis=0) / 128
 # print("MEANS: ", f_mean)
 
-# NORMALIZE THE ARRAY
 f_max = np.amax(data_array, axis=0)
 f_min = np.amin(data_array, axis=0)
-
 data_norm = (data_array - f_min) / (f_max - f_min)
 # data_norm = data_array - f_mean
-
 
 # COV
 cov = np.cov(data_norm.T)
