@@ -95,8 +95,8 @@ X_train, X_validation, Y_train, Y_validation = train_test_split(temp, Y, test_si
 DF = pd.concat([X_train, Y_train], axis=1)
 Y_train = Y_train.rename(columns={'class': 'Flag'})
 
-print("Total number of data points in Training: ", len(Y_train))
-print("Total number of data points in Validation: ", len(Y_validation))
+print("Number of data samples in Training: ", len(Y_train))
+print("Number of data samples in Validation: ", len(Y_validation))
 '''
 
 
@@ -137,13 +137,13 @@ os_data_X, os_data_y = os.fit_sample(X_train, y_train)
 os_data_X = pd.DataFrame(data=os_data_X, columns=columns)
 os_data_y = pd.DataFrame(data=os_data_y, columns=['class'])
 
-# we can Check the numbers of our data
-print("length of oversampled data is ", len(os_data_X))
-print("Number of neg in oversampled data", len(os_data_y[os_data_y['class'] == 'neg']))
-print("Number of pos ", len(os_data_y[os_data_y['class'] == 'pos']))
-print("Proportion of neg in oversampled data is ", len(os_data_y[os_data_y['class'] == 'neg']) / len(os_data_X))
-print("Proportion of pos in oversampled data is ", len(os_data_y[os_data_y['class'] == 'pos']) / len(os_data_X))
+# CHECK SAMPLES SIZES
+print("OverSampled Data Size: ", len(os_data_X))
+print("Pos Count: ", len(os_data_y[os_data_y['class'] == 'pos']))
+print("Negative in Oversampled data set: ", len(os_data_y[os_data_y['class'] == 'neg']))
 
+print("Ratio of positive in oversampled data: ", len(os_data_y[os_data_y['class'] == 'pos']) / len(os_data_X))
+print("Ratio of negative in oversampled data: ", len(os_data_y[os_data_y['class'] == 'neg']) / len(os_data_X))
 print(os_data_X.shape, os_data_y.shape)
 
 # TRAINING
