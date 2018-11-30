@@ -23,9 +23,9 @@ print("KMeans")
 # NORMALIZE THE ARRAY
 # f_mean = np.sum(data_array, axis=0) / 128
 # print("MEANS: ", f_mean)
-f_max = np.amax(data_array, axis=0)
-f_min = np.amin(data_array, axis=0)
-data_array = (data_array - f_min) / (f_max - f_min)
+# f_max = np.amax(data_array, axis=0)
+# f_min = np.amin(data_array, axis=0)
+# data_array = (data_array - f_min) / (f_max - f_min)
 # data_norm = data_array - f_mean
 
 # K-Means Algorithm
