@@ -15,9 +15,18 @@ with open(r"C:\Users\Sushant\Desktop\ASU Courses\CSE575 - Statistical Machine Le
     data = [data for data in data_iter]
 
 data_array = np.asarray(data)
-print(data_array.shape[0])
+data_array = data_array.astype(np.float)
+print(data_array)
 Kmeans = np.zeros(10)
 print("KMeans")
+
+# NORMALIZE THE ARRAY
+# f_mean = np.sum(data_array, axis=0) / 128
+# print("MEANS: ", f_mean)
+f_max = np.amax(data_array, axis=0)
+f_min = np.amin(data_array, axis=0)
+data_array = (data_array - f_min) / (f_max - f_min)
+# data_norm = data_array - f_mean
 
 # K-Means Algorithm
 def Kmeans(data, k):
@@ -30,6 +39,7 @@ def Kmeans(data, k):
         # print("Restart KMeans: ", K[0:k].size, np.count_nonzero(K[0:k]))
 
         # Initializing the means
+        np.random.seed(10)
         for i in range(k):
             K[i] = data[random.randint(0, 10)]
 
