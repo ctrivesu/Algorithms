@@ -4,6 +4,9 @@ import random
 import time
 
 import numpy as np
+import matplotlib as plt
+from matplotlib import pyplot
+
 
 
 
@@ -257,25 +260,34 @@ def forward_step(coord):
 
 def guess_move():
     sensed_location = sensor_location()
-    print("Sensor senses: ", sensed_location)
+    # print("Sensor Measurement: ", sensed_location)
     forward_step(sensed_location)
     move_estimate, prob = most_probable()
-    print("Robot thinks it's in: ", move_estimate, " with probability: ", prob)
+    # print("Position Estimate: ", move_estimate, " Probability: ", prob)
     return move_estimate, prob
 
 # DECISION MAKING
 
 moves = 0
 correct_guess = 0
-for i in range(100):
+Accuracy = []
+for i in range(1000):
     robot_step()
     moves += 1
-    print("\nRobot is in: ", r_location)
+    # print("\nAgent Position: ", r_location)
     guessed_move, probability = guess_move()
     if guessed_move == r_location:
         correct_guess += 1
     man_distance = abs(guessed_move[0] - r_location[0]) + abs(guessed_move[1] - r_location[1])
-    print("Manhattan distance: ", man_distance)
-    print("Robot has been correct:", float(correct_guess) / moves, "of the time.")
+    # print("Estimation Error: ", man_distance)
+    # print("Accuracy History:", (float(correct_guess) / moves) * 100)
     time.sleep(1)
+    Accuracy.append(float(correct_guess) / moves)
+
+print(Accuracy[0:10])
+
+for i in range(1000):
+    pyplot.scatter(i, Accuracy[i], color='red')
+pyplot.plot(Accuracy, color='green')
+pyplot.show()
 
