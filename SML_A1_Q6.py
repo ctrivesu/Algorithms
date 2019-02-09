@@ -136,7 +136,7 @@ for file in dir_neg_complete:
     Test_Neg.append(temp)
 print("3. Testing Lists created")
 
-for val in [1]:     # --- 0.1, 0.3, 0.5, 0.7, 0.8, 0.9, 1]:
+for val in [0.1, 0.3, 0.5, 0.7, 0.8, 0.9, 1]:
     # NEGATIVE
     # Create a dictionary - {'Word': count}
     fp = open(mypath + str(val) + '_elem_negative.txt', 'r', encoding='utf-8')
