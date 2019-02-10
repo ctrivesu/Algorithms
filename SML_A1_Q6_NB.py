@@ -1,7 +1,7 @@
 
 mypath = '''C:/Users/Sushant/Desktop/Movie Review Dataset/movie review data/'''
-
-fp = open(mypath+'list_negative.txt', 'r', encoding='utf-8')
+val = 0.1
+fp = open(mypath + str(val) + '_list_negative.txt', 'r', encoding='utf-8')
 read = fp.read()
 list_negative = read.split('\n')
 list_negative = [x for x in list_negative if x]
@@ -9,15 +9,14 @@ list_negative = {x.split('--')[0]: int(x.split('--')[1]) for x in list_negative}
 print(len(list_negative))
 print("------------------")
 
-fp = open(mypath+'list_positive.txt', 'r', encoding='utf-8')
+fp = open(mypath + str(val) + '_list_positive.txt', 'r', encoding='utf-8')
 read = fp.read()
 list_positive = read.split('\n')
 list_positive = [x for x in list_positive if x]
 list_positive = {x.split('--')[0]: int(x.split('--')[1]) for x in list_positive}
 print(len(list_positive))
 
-
-#combining the two lists
+# combining the two lists
 list_total = {x: list_positive.get(x, 0) + list_negative.get(x, 0) for x in set(list_positive).union(list_negative)}
 print(len(list_total))
 
